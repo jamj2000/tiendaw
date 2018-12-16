@@ -9,7 +9,8 @@ const CACHE_NAME = 'tiendaw-v1';
 const CACHE_ASSETS = [
   '/',
   '/index.html',
-  '/styles/style.css'
+  '/style.css',
+  '/app.js'
 ];
 
 // INSTALL

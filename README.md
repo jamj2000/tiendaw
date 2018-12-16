@@ -1,5 +1,5 @@
 # tiendaw
-# FullStack MEN (MongoDB + Express + Nodejs) + PWA (Ejemplo didáctico)
+# FullStack MEN (MongoDB + Express + Nodejs) + PWA. Ejemplo didáctico.
 
 [![Build Status](https://travis-ci.org/jamj2000/tiendaw.svg?branch=master)](https://travis-ci.org/jamj2000/tiendaw)
 
@@ -17,14 +17,9 @@ Este es un proyecto realizado con fines educativos. Actualmente está desplegado
 
 Se utilizan los mínimos recursos (ya sean estos paquetes, librerías o frameworks). Tambien se intenta minimizar el número de archivos utilizados. Este proyecto **NO** necesita de frameworks como Angular, React o Vue para el FrondEnd, ya que hacemos uso de [VanillaJS](http://vanilla-js.com/) ( **~~MEAN~~**, **~~MERN~~**, **~~MEVN~~**  ). 
 
-Existen 3 aplicaciones web dentro de proyecto, denominadas App0, App1 y App2. Cada una de ellas es una SPA (Single Page Application).
+La interfaz está desarrollada en forma de SPA (Single Page Application).
 
-![Index](snapshots/tiendaw-index.png)
-![App1 - Artículos](snapshots/tiendaw-app1-articulos.png)
-![App1 - Clientes](snapshots/tiendaw-app1-clientes.png)
-![App2 - Artículos](snapshots/tiendaw-app2-articulos.png)
-![App2 - Clientes](snapshots/tiendaw-app2-clientes.png)
-
+![Index](snapshots/tiendaw-app2-articulos.png)
 
 Los archivos utilizados son los siguientes:
 
@@ -139,7 +134,7 @@ Si deseas hacer un despligue usando los servicios proporcionados por los sitios 
 4. Inicia sesión desde el terminal en la cuenta que previamente creaste en Heroku. Y crea una nueva aplicación. 
   
   ```bash
-  heroku login --interactive
+  heroku login --interactive¡
   heroku create --region eu  nombre_aplicacion
   ```
   
