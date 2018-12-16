@@ -1,7 +1,7 @@
-# tienda0
-# Proyecto Fullstack con NODEJS + EXPRESS + MONGODB
+# tiendaw
+# FullStack MEN (MongoDB + Express + Nodejs) + PWA (Ejemplo didáctico)
 
-[![Build Status](https://travis-ci.org/jamj2000/tienda0.svg?branch=master)](https://travis-ci.org/jamj2000/tienda0)
+[![Build Status](https://travis-ci.org/jamj2000/tiendaw.svg?branch=master)](https://travis-ci.org/jamj2000/tiendaw)
 
 [![VanillaJS](https://img.shields.io/badge/Vanilla-JS-orange.svg)](http://vanilla-js.com/)
 
@@ -11,7 +11,7 @@
 
 ## Introducción
 
-Este es un proyecto realizado con fines educativos. Actualmente está desplegado en [Heroku](https://tienda0.herokuapp.com/).
+Este es un proyecto realizado con fines educativos. Actualmente está desplegado en [Heroku](https://tiendaw.herokuapp.com/).
 
 **BONUS:** La aplicación está desarrollada además como PWA (Progressive Web App). Esto quiere decir que si la abres con Android y pulsas en la opción "Añadir a pantalla de inicio", se te instalará dicha aplicación en tu móvil como si tratará de una aplicación nativa. 
 
@@ -19,69 +19,56 @@ Se utilizan los mínimos recursos (ya sean estos paquetes, librerías o framewor
 
 Existen 3 aplicaciones web dentro de proyecto, denominadas App0, App1 y App2. Cada una de ellas es una SPA (Single Page Application).
 
-![Index](snapshots/tienda0-index.png)
-![App1 - Artículos](snapshots/tienda0-app1-articulos.png)
-![App1 - Clientes](snapshots/tienda0-app1-clientes.png)
-![App2 - Artículos](snapshots/tienda0-app2-articulos.png)
-![App2 - Clientes](snapshots/tienda0-app2-clientes.png)
+![Index](snapshots/tiendaw-index.png)
+![App1 - Artículos](snapshots/tiendaw-app1-articulos.png)
+![App1 - Clientes](snapshots/tiendaw-app1-clientes.png)
+![App2 - Artículos](snapshots/tiendaw-app2-articulos.png)
+![App2 - Clientes](snapshots/tiendaw-app2-clientes.png)
 
 
 Los archivos utilizados son los siguientes:
 
 
 ```
-├── config.js
-├── index.js
-├── models.js
-├── package.for.react.json
 ├── package.json
 ├── package-lock.json
+├── server.js
+├── models.js
+├── routes.js
+├── config.js
 ├── public
-│   ├── app0.html
-│   ├── app1.html
-│   ├── app2.html
-│   ├── css
-│   │   ├── bootstrap.min.css
-│   │   └── toastr.css
 │   ├── favicon.png
 │   ├── index.html
-│   └── js
-│       ├── bootstrap.min.js
-│       ├── jquery-1.9.1.min.js
-│       ├── jquery-migrate-1.2.1.min.js
-│       └── toastr.js
-├── README.md
-└── routes.js
+│   ├── style.css
+│   └── app.js
+└── README.md
 ```
 
 
 Para el BackEnd los archivos necesarios son:
 
 - package.json
+- package-lock.json
 - index.js
 - config.js
 - models.js
 - routes.js
 
-Para el FrontEnd los archivos necesarios, según la App, son:
+Para el FrontEnd los archivos necesarios son:
 
-- App0
-  - public/favicon.png
-  - public/app0.html
-  
-- App1
-  - public/favicon.png
-  - public/app1.html
-  
-- App2
-  - public/favicon.png
-  - public/app2.html
-  - public/css/*
-  - public/js/*
-  
-La página `public/index.html` da acceso a las 3 applicaciones.
+- public/favicon.png
+- public/index.html
+- public/style.css
+- public/app.js
 
+Para Aplicación Web Progresiva
 
+- public/manifest.json
+- public/service-worker.js
+- public/images/icons/*
+
+ 
+  
 ## Despliegue en local
 
 Para poder ejecutar este proyecto en tu equipo local, sigue los siguientes pasos: 
@@ -89,8 +76,8 @@ Para poder ejecutar este proyecto en tu equipo local, sigue los siguientes pasos
 1. Instala el servidor MongoDB. [Consulta la página oficial](https://docs.mongodb.com/manual/installation/).
 2. Clona este repositorio en tu equipo:
   ```bash
-  git  clone  https://github.com/jamj2000/tienda0.git
-  cd   tienda0
+  git  clone  https://github.com/jamj2000/tiendaw.git
+  cd   tiendaw
   ```
 3. Instala los módulos necesarios;
   ```bash
@@ -120,7 +107,7 @@ Para ello, sigue los siguientes pasos:
 
 2. Clona este repositorio en tu equipo:
   ```bash
-  git  clone  https://github.com/jamj2000/tienda0.git  &&   cd   tienda0
+  git  clone  https://github.com/jamj2000/tiendaw.git  &&   cd   tiendaw
   ```
 
 3. Dentro de la carpeta que contiene el código, ejecuta: 
@@ -145,14 +132,14 @@ Si deseas hacer un despligue usando los servicios proporcionados por los sitios 
 
 3. Clona este repositorio en tu equipo:
   ```bash
-  git  clone  https://github.com/jamj2000/tienda0.git
-  cd   tienda0
+  git  clone  https://github.com/jamj2000/tiendaw.git
+  cd   tiendaw
   ```
 
 4. Inicia sesión desde el terminal en la cuenta que previamente creaste en Heroku. Y crea una nueva aplicación. 
   
   ```bash
-  heroku login
+  heroku login --interactive
   heroku create --region eu  nombre_aplicacion
   ```
   
@@ -235,11 +222,11 @@ Si deseas hacer un despligue usando los servicios proporcionados por los sitios 
   - El nombre del usuario.
   - La contraseña de dicho usuario.
   
-  ![tienda0 mlab](snapshots/mlab-tienda0.png)
+  ![tiendaw mlab](snapshots/mlab-tiendaw.png)
 
 9. Vuelve a la web de Heroku, inicia sesión, selecciona tu aplicación y pincha en el apartado `Settings` y luego en el botón `Reveal Config Vars`. Crea las variables de entorno que se muestran a continuación con los datos que recopilaste en el apartado anterior.
 
-  ![tienda0 env](snapshots/env-heroku-tienda0.png)
+  ![tiendaw env](snapshots/env-heroku-tiendaw.png)
   
 
 10. En la parte superior derecha de la página, pulsa en el boton `More` y luego en `Restart all dynos`.

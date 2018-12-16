@@ -3,21 +3,13 @@
 
 
 // Nombre de la caché
-const CACHE_NAME = 'tienda0-v1';
+const CACHE_NAME = 'tiendaw-v1';
 
 // Archivos necesarios para el funcionamiento offline
 const CACHE_ASSETS = [
   '/',
   '/index.html',
-  '/app0.html',
-  '/app1.html',
-  '/app2.html',
-  '/styles/bootstrap.min.css',
-  '/styles/toastr.css',
-  '/scripts/bootstrap.min.js',
-  '/scripts/jquery-1.9.1.min.js',
-  '/scripts/jquery-migrate-1.2.1.min.js',
-  '/scripts/toastr.js'
+  '/styles/style.css'
 ];
 
 // INSTALL
