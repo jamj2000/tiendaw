@@ -8,12 +8,12 @@ let articuloColNames = ["nombre", "precio"];
 
 let index = `
      <div style="margin: 50px">
-         <h1>App0</h1>
+         <h1>Tiendaw</h1>
          <br><br>
          <p>Esta SPA ofrece 2 opciones:</p>
          <br>
          <ul style="padding-left: 50px">
-           <li><b>INICIO</b>: Enlace para salir de la APP y volver a la página de inicio.</li>
+           <li><b>INICIO</b>: Enlace para ver esta ayuda.</li>
            <li><b>Artículos</b>: Permite realizar operaciones CRUD sobre los artículos de la BD. </li>
          </ul>
        <br><p>Por favor, escoge una opción.</p>

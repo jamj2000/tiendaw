@@ -1,5 +1,5 @@
 # tiendaw
-# FullStack MEN (MongoDB + Express + Nodejs) + PWA. Ejemplo didáctico.
+# FullStack MEN (MongoDB + Express + Nodejs) + PWA.Ejemplo didáctico.
 
 [![Build Status](https://travis-ci.org/jamj2000/tiendaw.svg?branch=master)](https://travis-ci.org/jamj2000/tiendaw)
 
@@ -134,7 +134,7 @@ Si deseas hacer un despligue usando los servicios proporcionados por los sitios 
 4. Inicia sesión desde el terminal en la cuenta que previamente creaste en Heroku. Y crea una nueva aplicación. 
   
   ```bash
-  heroku login --interactive¡
+  heroku login --interactive
   heroku create --region eu  nombre_aplicacion
   ```
   
