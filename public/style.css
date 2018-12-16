@@ -8,7 +8,8 @@
 /*  https://codepen.io/mlegakis/pen/jBYPGr  */
 
 :root {
-  --bgcolor-menu: #030338;
+  --bgcolor-menu: #5d5dfd;
+  --bgcolor-menu-selected: #f5f5f5;
   --bgcolor-input: #7171f7;
 }
 
@@ -27,10 +28,11 @@ html {
   /*18px*/
   width: 100%;
   height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+
   background: #f5f5f5;
   color: #333;
   -webkit-font-smoothing: antialiased;
@@ -42,6 +44,8 @@ nav {
   background-color: var(--bgcolor-menu);
   width: 100%;
   position: fixed;
+  font-weight: bolder;
+  text-shadow: 1px 1px  rgb(0, 17, 116);
   z-index: 1;
 }
 
@@ -52,17 +56,19 @@ main {
 }
 
 footer {
+  box-sizing: border-box;
   color: #ffffff;
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 30px;
   width: 100%;
   padding-left: 20px;
   padding-top: 10px;
   overflow: hidden;
   background: var(--bgcolor-menu);
-  font-size: 14px;
+  font-size: 16px;
+  _font-weight: bold;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
 }
 
 div#info {
@@ -76,10 +82,6 @@ div#info {
   padding: 1em;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
 }
-
-/* .texto_a_derecha {
-  text-align: right
-} */
 
 nav ul {
   list-style: none;
@@ -198,17 +200,6 @@ button.eliminar > span::after {
 
 
 
-/* .fa-pen:after {
-  content: " Insertar";
-}
-
-.fa-edit:after {
-  content: " Actualizar";
-}
-
-.fa-trash-alt:after {
-  content: " Eliminar";
-} */
 
 /* Tables */
 	/* Responsive scroll-y table */

@@ -5,6 +5,7 @@
    */
 
 let articuloColNames = ["nombre", "precio"];
+let clienteColNames = ["nombre", "apellidos"];
 
 let index = `
      <div style="margin: 50px">
@@ -27,7 +28,7 @@ window.addEventListener('load', function () {
     acerca.style.display = 'block';
 
     document.getElementsByName('articulos')[0].addEventListener('click', function (e) {
-        this.setAttribute('style', 'background-color: #bbb; color: #000');
+        this.setAttribute('style', 'background-color: #f5f5f5; color: #000');
 
         document.getElementById('acerca').style.display = 'none';
 
