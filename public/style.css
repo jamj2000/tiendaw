@@ -8,7 +8,7 @@
 /*  https://codepen.io/mlegakis/pen/jBYPGr  */
 
 :root {
-  --bgcolor-menu: #5d5dfd;
+  --bgcolor-menu: #242475;
   --bgcolor-menu-selected: #f5f5f5;
   --bgcolor-input: #7171f7;
 }
@@ -45,7 +45,7 @@ nav {
   width: 100%;
   position: fixed;
   font-weight: bolder;
-  text-shadow: 1px 1px  rgb(0, 17, 116);
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
   z-index: 1;
 }
 

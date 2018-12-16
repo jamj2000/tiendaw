@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
     acerca.style.display = 'block';
 
     document.getElementsByName('articulos')[0].addEventListener('click', function (e) {
-        this.setAttribute('style', 'background-color: #f5f5f5; color: #000');
+        this.setAttribute('style', 'background-color: #f5f5f5; color: #242475');
 
         document.getElementById('acerca').style.display = 'none';
 
