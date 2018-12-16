@@ -1,0 +1,25 @@
+{
+  "name": "tiendaw",
+  "version": "1.0.0",
+  "description": "Aplicación para una tienda",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "node",
+    "tienda",
+    "javascript"
+  ],
+  "author": "José Antonio Muñoz Jiménez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.3"
+  },
+  "devDependencies": {
+    "node-fetch": "^2.2.0",
+    "nodemon": "^1.18.2"
+  }
+}
