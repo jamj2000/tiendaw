@@ -36,7 +36,6 @@ window.addEventListener('load', function () {
 
 });
 
-
 function json2table(jsonData, classes) {
 
     classes = classes || '';
