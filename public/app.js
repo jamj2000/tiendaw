@@ -5,35 +5,42 @@
    */
 
 let articuloColNames = ["nombre", "precio"];
-let clienteColNames = ["nombre", "apellidos"];
+let clienteColNames  = ["nombre", "apellidos"];
 
 let index = `
      <div style="margin: 50px">
          <h1>Tiendaw</h1>
+         <small><b>Ejemplo didáctico PWA y Fullstack MEN (MongoDB + Express + NodeJS) </b></small>
          <br><br>
-         <p>Esta SPA ofrece 2 opciones:</p>
+         <p>Esta SPA (Single Page Application) ofrece 3 opciones:</p>
          <br>
          <ul style="padding-left: 50px">
-           <li><b>INICIO</b>: Enlace para ver esta ayuda.</li>
+           <li><b>Inicio</b>: Esta página con información.</li>
            <li><b>Artículos</b>: Permite realizar operaciones CRUD sobre los artículos de la BD. </li>
+           <li><b>Clientes</b>: Permite realizar operaciones CRUD sobre los clientes de la BD.</li>
          </ul>
-       <br><p>Por favor, escoge una opción.</p>
      </div>`;
 
 
 window.addEventListener('load', function () {
 
-    let acerca = document.getElementById('acerca')
-    acerca.innerHTML = index;
-    acerca.style.display = 'block';
+    let inicio = document.getElementById('inicio')
+    inicio.innerHTML = index;
+    inicio.style.display = 'block';
 
-    document.getElementsByName('articulos')[0].addEventListener('click', function (e) {
-        this.setAttribute('style', 'background-color: #f5f5f5; color: #242475');
+    document.getElementById('menu-inicio').addEventListener('click', function (e) {
+        document.getElementById('inicio').style.display = 'block';
+        document.getElementById('articulos').style.display = 'none';
+    });
 
-        document.getElementById('acerca').style.display = 'none';
+    document.getElementById('menu-articulos').addEventListener('click', function (e) {
+        document.getElementById('inicio').style.display = 'none';
+        document.getElementById('articulos').style.display = 'block';
 
         refresh();
     });
+
+
 
 });
 
@@ -169,7 +176,7 @@ function insertar(campo1, campo2) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(objeto)
         }).then(res => res.json())
-            .then(data => { console.log(data); });
+          .then(data => { console.log(data); });
 
         refresh();
     }
@@ -189,7 +196,7 @@ function modificar(id, campo1, campo2) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(objeto)
     }).then(res => res.json())
-        .then(data => { console.log(data) });
+      .then(data => { console.log(data) });
 
     refresh();
 }

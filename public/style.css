@@ -8,9 +8,10 @@
 /*  https://codepen.io/mlegakis/pen/jBYPGr  */
 
 :root {
-  --bgcolor-menu: #242475;
-  --bgcolor-menu-selected: #f5f5f5;
-  --bgcolor-input: #7171f7;
+  /*--bgcolor-menu: #242475;*/
+  --bgcolor-menu:  #f5f5f5;
+  --bgcolor-menu-text:  rgb(47, 51, 61);
+  --bgcolor-input: #ff970f;
 }
 
 *,
@@ -32,7 +33,6 @@ html {
 }
 
 body {
-
   background: #f5f5f5;
   color: #333;
   -webkit-font-smoothing: antialiased;
@@ -40,12 +40,14 @@ body {
   /*padding: 1em ; */
 }
 
-nav {
+nav {  
   background-color: var(--bgcolor-menu);
   width: 100%;
   position: fixed;
   font-weight: bolder;
-  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  color: var(--bgcolor-menu-text);
+  text-shadow: -2px -2px 8px rgb(0, 0, 0);
+  text-shadow: 2px 2px 6px rgb(0, 0, 0);
   z-index: 1;
 }
 
@@ -55,21 +57,6 @@ main {
   z-index: 0;
 }
 
-footer {
-  box-sizing: border-box;
-  color: #ffffff;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding-left: 20px;
-  padding-top: 10px;
-  overflow: hidden;
-  background: var(--bgcolor-menu);
-  font-size: 16px;
-  _font-weight: bold;
-  text-shadow: 2px 2px 8px rgb(0, 0, 0);
-}
 
 div#info {
   position: fixed;
@@ -83,48 +70,36 @@ div#info {
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
 }
 
-nav ul {
-  list-style: none;
-  overflow: hidden;
+nav input {
+  visibility:hidden;
 }
 
-ul.menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  width: 100%;
-}
-
-ul.menu>a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: .5s;
-}
-
-ul.menu>a:hover {
+nav label {
   cursor: pointer;
 }
 
+input[type=radio] + label {
+  color: rgb(80, 82, 88);
+}
+
+input[type=radio]:checked + label{
+  background-color: #f5f5f5; 
+  color: #000;
+}
+
+
 .seccion {
   padding-top: 80px;
+  min-height: 200px;
   display: none;
 }
 
 input {
   padding: 10px;
-  _background-color: var(--bgcolor-input);
-  _border-radius: 6px;
   font-size: 14px;
   color: black;
   border: 0;
   outline: none;
-  _border: solid 2px black;
   margin-left: 5px;
   margin-bottom: 4px;
 }
@@ -150,6 +125,9 @@ button {
   font-size: 1em;
   transition: all .3s ease-in-out;
 }
+
+
+
 
 button:hover {
   background: #fcefc6;
@@ -245,11 +223,6 @@ button.eliminar > span::after {
 
 
 @media (max-width: 360px) { 
-
-  /* .fa-pen:after, .fa-edit:after, .fa-trash-alt:after {
-    content: none;
-  } */
-  
   .table-responsive-full td {
     padding-left: 14px;
   }

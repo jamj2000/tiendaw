@@ -1,5 +1,5 @@
-//// SERVICE WORKER. Siempre a la escucha en segundo plano,
-//// aunque el usuario no esté en la página web.
+//// SERVICE WORKER. Siempre a la escucha en segundo plano.
+//// Aunque el usuario no tenga abierta la página web.
 
 
 // Nombre de la caché
@@ -22,11 +22,11 @@ self.addEventListener('install', function (e) {
     caches
       .open(CACHE_NAME)
       .then(function (cache) {
-        console.log('[ServiceWorker] Cacheando app shell');
+        console.log('[Service Worker] Cacheando app shell');
         return cache.addAll(CACHE_ASSETS);
       })
       .then(function () {
-        console.log('[ServiceWorker] Todos los recursos han sido cacheados');
+        console.log('[Service Worker] Todos los recursos han sido cacheados');
         return self.skipWaiting();
       })
   );
