@@ -10,7 +10,7 @@ let colecciones = {
 };
 
 let articuloColNames = ["nombre", "precio"];
-let clienteColNames = ["nombre", "apellidos"];
+
 
 let index = `
      <div style="margin: 50px">
@@ -191,11 +191,13 @@ function insertar(coleccion, campo1, campo2) {
     let objeto = { nombre: campo1, precio: campo2 };
 
     if (objeto.nombre !== '' && objeto.precio !== '') {
-        fetch(`/api/${coleccion}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(objeto)
-        }).then(res => res.json())
+        fetch(`/api/${coleccion}`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(objeto)
+            })
+            .then(res => res.json())
             .then(data => { console.log(data); });
 
         verDocumentos(`${coleccion}`);
@@ -204,7 +206,10 @@ function insertar(coleccion, campo1, campo2) {
 }
 
 function verDocumentos(coleccion) {
-    fetch(`/api/${coleccion}`, { method: 'GET' })
+    fetch(`/api/${coleccion}`,
+        {
+            method: 'GET'
+        })
         .then(res => res.json())
         .then(data => {
             document.getElementById(`${coleccion}`).innerHTML
@@ -215,12 +220,13 @@ function verDocumentos(coleccion) {
 function modificar(coleccion, id, campo1, campo2) {
     let objeto = { nombre: campo1, precio: campo2 };
 
-    fetch(`/api/${coleccion}/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(objeto)
-    }
-       ).then(res => res.json())
+    fetch(`/api/${coleccion}/${id}`,
+        {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(objeto)
+        })
+        .then(res => res.json())
         .then(data => { console.log(data); });
 
     verDocumentos(`${coleccion}`);
@@ -228,7 +234,10 @@ function modificar(coleccion, id, campo1, campo2) {
 
 function borrar(coleccion, id) {
     // if (confirm("El documento para " + documento.nombre + " va a ser eliminado. ¿Está seguro?")) {
-    fetch(`/api/${coleccion}/${id}`, { method: 'DELETE' })
+    fetch(`/api/${coleccion}/${id}`,
+        {
+            method: 'DELETE'
+        })
         .then(res => res.json())
         .then(data => console.log(data));
     // }
