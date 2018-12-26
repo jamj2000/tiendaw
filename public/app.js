@@ -6,11 +6,11 @@
 
 let colecciones = {
     articulos: ["nombre", "precio"],
-    clientes:  ["nombre", "apellidos"]
+    clientes: ["nombre", "apellidos"]
 };
 
 let articuloColNames = ["nombre", "precio"];
-let clienteColNames  = ["nombre", "apellidos"];
+let clienteColNames = ["nombre", "apellidos"];
 
 let index = `
      <div style="margin: 50px">
@@ -26,15 +26,7 @@ let index = `
          </ul>
      </div>`;
 
-let ordenarColumna = (nombreColumna) => `
-     <div class="sort-table-arrows">
-         <a  style="text-decoration: none" href="javascript:sort(true, '${nombreColumna}', 'content-table');">
-           <button class="button" title="ascendente">🔽</button>
-         </a>
-         <a href="javascript:sort(false, '${nombreColumna}', 'content-table');">
-           <button class="button" title="descendente">🔼</button>
-         </a>
-     </div>`;
+
 
 window.addEventListener('load', function () {
 
@@ -64,9 +56,20 @@ window.addEventListener('load', function () {
 
 });
 
-function json2table(jsonData, classes) {
+function json2table(collection, jsonData, classes) {
 
     classes = classes || '';
+
+    // let colNames = Object.keys(jsonData[0]);
+    let colNames = colecciones[collection];
+    let headerRow = '';
+    let bodyRows = '';
+
+    let tabla = `
+      <table id="content-table" class="${classes}">
+        <thead>${headerRow}</thead>
+        <tbody>${bodyRows}</tbody>
+      </table>`;
 
     let filaInsertar = `
        <tr>
@@ -75,9 +78,26 @@ function json2table(jsonData, classes) {
          <td data-label="Precio" class="precio">
            <input id="campo2" name="precio" type="number" min="0" max="9999.99" step=".01" style="text-align: right;" value=""></input></td>
          <td data-label="Operacion" class="operacion">
-           <button class="insertar" title="Insertar" onclick="insertar('articulos', document.getElementById('campo1').value, parseFloat((document.getElementById('campo2')).value));">
+           <button class="insertar" title="Insertar" onclick="insertar('${collection}', document.getElementById('campo1').value, parseFloat((document.getElementById('campo2')).value));">
          <span>✏️</span></button></td>
        </tr> `;
+
+    let celdaDatos = (documento, campo) => `
+       <td data-label="${campo}" class="${campo}">
+         <input 
+            id="${documento._id}.${campo}" 
+            value="${typeof documento[campo] == 'number' ? documento[campo].toFixed(2) : documento[campo]}"
+            ${typeof documento[campo] == 'number' ? 'type="number" min="0" max="9999.99" step=".01" style="text-align: right;"' : 'type="text" '}>
+       </td>`;
+
+    let celdaModificarEliminar = (row) => `
+        <td data-label="Operacion" class="operacion">
+          <button class="modificar" title="Modificar" 
+             onclick="modificar('${collection}', '${row._id}', document.getElementById('${row._id}.${articuloColNames[0]}').value, document.getElementById('${row._id}.${articuloColNames[1]}').value)
+      "><span>📝</span> </button>
+          <button class="eliminar" title="Eliminar" 
+             onclick="borrar('${collection}', '${row._id}'); document.getElementById('${row._id}').remove()"><span>❌</span></button>
+        </td>`;
 
     if (jsonData.length == 0)
         return `<table id="content-table" class="${classes}">
@@ -91,24 +111,24 @@ function json2table(jsonData, classes) {
                    </tbody>
                  </table>`;
 
-    let colNames = Object.keys(jsonData[0]);
-    let headerRow = '';
-    let bodyRows = '';
+    let ordenarColumna = (nombreColumna) => `
+     <div class="sort-table-arrows">
+         <a  style="text-decoration: none" href="javascript:sort(true, '${nombreColumna}', 'content-table');">
+           <button class="button" title="ascendente">🔽</button>
+         </a>
+         <a href="javascript:sort(false, '${nombreColumna}', 'content-table');">
+           <button class="button" title="descendente">🔼</button>
+         </a>
+     </div>`;
 
-
-    let celda = (fila, nombreColumna) => `
-       <td data-label="${nombreColumna}" class="${nombreColumna}">
-         <input 
-            id="${fila._id}.${nombreColumna}" 
-            value="${typeof fila[nombreColumna] == 'number' ? fila[nombreColumna].toFixed(2) : fila[nombreColumna]}"
-            ${typeof fila[nombreColumna] == 'number' ? 'type="number" min="0" max="9999.99" step=".01" style="text-align: right;"' : 'type="text" '}>
-       </td>`;
 
     // CABECERA
     headerRow = `<tr>`;
-    colNames.filter(colName => colName != '_id' && colName != '__v')
-        .map(colName => headerRow +=
-            `<th class="${colName}"> ${colName} ${ordenarColumna(colName)} </th>`);
+
+    colNames
+        .filter(colName => colName != '_id' && colName != '__v')
+        .map(colName => headerRow += `<th class="${colName}"> ${colName} ${ordenarColumna(colName)} </th>`);
+
     headerRow += `<th class="operacion">Operación</th>
                      </tr>`;
 
@@ -119,17 +139,10 @@ function json2table(jsonData, classes) {
     jsonData.map(function (row) {
         bodyRows += `<tr id="${row._id}">`;
         colNames.filter(colName => colName != '_id' && colName != '__v')
-            .map(colName => bodyRows += celda(row, colName));
+            .map(colName => bodyRows += celdaDatos(row, colName));
 
-        bodyRows += `
-         <td data-label="Operacion" class="operacion">
-             <button class="modificar" title="Modificar" 
-               onclick="modificar('${row._id}', document.getElementById('${row._id}.${articuloColNames[0]}').value, document.getElementById('${row._id}.${articuloColNames[1]}').value)
-  "><span>📝</span> </button>
-             <button class="eliminar" title="Eliminar" 
-               onclick="borrar('${row._id}'); document.getElementById('${row._id}').remove()"><span>❌</span></button>
-         </td>
-         </tr>`;
+        bodyRows += celdaModificarEliminar(row);
+        bodyRows += '</tr>';
         // ------------ Fin Añadimos filas con los datos
     });
 
@@ -184,7 +197,7 @@ function insertar(coleccion, campo1, campo2) {
             body: JSON.stringify(objeto)
         }).then(res => res.json())
             .then(data => { console.log(data); });
-        
+
         verDocumentos(`${coleccion}`);
 
     }
@@ -194,27 +207,28 @@ function verDocumentos(coleccion) {
     fetch(`/api/${coleccion}`, { method: 'GET' })
         .then(res => res.json())
         .then(data => {
-            let c = document.getElementById(`${coleccion}`);
-            c.innerHTML = json2table(data, "table-responsive-full sort-table")
+            document.getElementById(`${coleccion}`).innerHTML
+                = json2table(coleccion, data, "table-responsive-full sort-table")
         });
 }
 
 function modificar(coleccion, id, campo1, campo2) {
     let objeto = { nombre: campo1, precio: campo2 };
 
-    fetch('/api/articulos/' + id, {
+    fetch(`/api/${coleccion}/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(objeto)
-    }).then(res => res.json())
-        .then(data => { console.log(data);  });
+    }
+       ).then(res => res.json())
+        .then(data => { console.log(data); });
 
     verDocumentos(`${coleccion}`);
 }
 
 function borrar(coleccion, id) {
     // if (confirm("El documento para " + documento.nombre + " va a ser eliminado. ¿Está seguro?")) {
-    fetch('/api/articulos/' + id, { method: 'DELETE' })
+    fetch(`/api/${coleccion}/${id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(data => console.log(data));
     // }

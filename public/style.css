@@ -41,6 +41,8 @@ body {
 }
 
 nav {  
+  padding: 10px;
+  _background-color: trasparent;
   background-color: var(--bgcolor-menu);
   width: 100%;
   position: fixed;
@@ -58,6 +60,28 @@ main {
 }
 
 
+nav input {
+  visibility:hidden;
+}
+
+nav label {
+  cursor: pointer;
+}
+
+input[type=radio] + label {
+  padding: 10px;
+  background-color: transparent; 
+  color: rgb(80, 82, 88);
+}
+
+input[type=radio]:checked + label{
+  background-color: #ffffff; 
+  border: solid 1px gray;
+  border-radius:  5px;
+  color: #000;
+}
+
+
 div#info {
   position: fixed;
   top: 80px;
@@ -68,23 +92,6 @@ div#info {
   font-size: .8em;
   padding: 1em;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
-}
-
-nav input {
-  visibility:hidden;
-}
-
-nav label {
-  cursor: pointer;
-}
-
-input[type=radio] + label {
-  color: rgb(80, 82, 88);
-}
-
-input[type=radio]:checked + label{
-  background-color: #f5f5f5; 
-  color: #000;
 }
 
 
