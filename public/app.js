@@ -4,13 +4,18 @@
    - https://codepen.io/mlegakis/pen/jBYPGr
    */
 
+let colecciones = {
+    articulos: ["nombre", "precio"],
+    clientes:  ["nombre", "apellidos"]
+};
+
 let articuloColNames = ["nombre", "precio"];
 let clienteColNames  = ["nombre", "apellidos"];
 
 let index = `
      <div style="margin: 50px">
          <h1>Tiendaw</h1>
-         <small><b>Ejemplo didáctico PWA y Fullstack MEN (MongoDB + Express + NodeJS) </b></small>
+         <small><b>Ejemplo didáctico: PWA y Fullstack MEN (MongoDB + Express + NodeJS) </b></small>
          <br><br>
          <p>Esta SPA (Single Page Application) ofrece 3 opciones:</p>
          <br>
@@ -21,6 +26,15 @@ let index = `
          </ul>
      </div>`;
 
+let ordenarColumna = (nombreColumna) => `
+     <div class="sort-table-arrows">
+         <a  style="text-decoration: none" href="javascript:sort(true, '${nombreColumna}', 'content-table');">
+           <button class="button" title="ascendente">🔽</button>
+         </a>
+         <a href="javascript:sort(false, '${nombreColumna}', 'content-table');">
+           <button class="button" title="descendente">🔼</button>
+         </a>
+     </div>`;
 
 window.addEventListener('load', function () {
 
@@ -31,16 +45,22 @@ window.addEventListener('load', function () {
     document.getElementById('menu-inicio').addEventListener('click', function (e) {
         document.getElementById('inicio').style.display = 'block';
         document.getElementById('articulos').style.display = 'none';
+        document.getElementById('clientes').style.display = 'none';
     });
 
     document.getElementById('menu-articulos').addEventListener('click', function (e) {
         document.getElementById('inicio').style.display = 'none';
         document.getElementById('articulos').style.display = 'block';
-
-        refresh();
+        document.getElementById('clientes').style.display = 'none';
+        verDocumentos('articulos')
     });
 
-
+    document.getElementById('menu-clientes').addEventListener('click', function (e) {
+        document.getElementById('inicio').style.display = 'none';
+        document.getElementById('articulos').style.display = 'none';
+        document.getElementById('clientes').style.display = 'block';
+        verDocumentos('clientes')
+    });
 
 });
 
@@ -55,7 +75,7 @@ function json2table(jsonData, classes) {
          <td data-label="Precio" class="precio">
            <input id="campo2" name="precio" type="number" min="0" max="9999.99" step=".01" style="text-align: right;" value=""></input></td>
          <td data-label="Operacion" class="operacion">
-           <button class="insertar" title="Insertar" onclick="insertar(document.getElementById('campo1').value, parseFloat((document.getElementById('campo2')).value));">
+           <button class="insertar" title="Insertar" onclick="insertar('articulos', document.getElementById('campo1').value, parseFloat((document.getElementById('campo2')).value));">
          <span>✏️</span></button></td>
        </tr> `;
 
@@ -74,15 +94,7 @@ function json2table(jsonData, classes) {
     let colNames = Object.keys(jsonData[0]);
     let headerRow = '';
     let bodyRows = '';
-    let ordenarColumna = (nombreColumna) => `
-       <div class="sort-table-arrows">
-           <a  style="text-decoration: none" href="javascript:sort(true, '${nombreColumna}', 'content-table');">
-             <button class="button" title="ascendente">🔽</button>
-           </a>
-           <a href="javascript:sort(false, '${nombreColumna}', 'content-table');">
-             <button class="button" title="descendente">🔼</button>
-           </a>
-       </div>`;
+
 
     let celda = (fila, nombreColumna) => `
        <td data-label="${nombreColumna}" class="${nombreColumna}">
@@ -155,11 +167,6 @@ function sort(ascending, columnClassName, tableId) {
 };
 
 
-function refresh() {
-    verDocumentos();
-    document.getElementById('articulos').style.display = 'block';
-}
-
 
 /*
 --------------------
@@ -167,28 +174,32 @@ function refresh() {
 --------------------
  */
 
-function insertar(campo1, campo2) {
+function insertar(coleccion, campo1, campo2) {
     let objeto = { nombre: campo1, precio: campo2 };
 
     if (objeto.nombre !== '' && objeto.precio !== '') {
-        fetch('/api/articulos', {
+        fetch(`/api/${coleccion}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(objeto)
         }).then(res => res.json())
-          .then(data => { console.log(data); });
+            .then(data => { console.log(data); });
+        
+        verDocumentos(`${coleccion}`);
 
-        refresh();
     }
 }
 
-function verDocumentos() {
-    fetch('/api/articulos', { method: 'GET' })
+function verDocumentos(coleccion) {
+    fetch(`/api/${coleccion}`, { method: 'GET' })
         .then(res => res.json())
-        .then(data => { document.getElementById('articulos').innerHTML = json2table(data, "table-responsive-full sort-table") });
+        .then(data => {
+            let c = document.getElementById(`${coleccion}`);
+            c.innerHTML = json2table(data, "table-responsive-full sort-table")
+        });
 }
 
-function modificar(id, campo1, campo2) {
+function modificar(coleccion, id, campo1, campo2) {
     let objeto = { nombre: campo1, precio: campo2 };
 
     fetch('/api/articulos/' + id, {
@@ -196,17 +207,15 @@ function modificar(id, campo1, campo2) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(objeto)
     }).then(res => res.json())
-      .then(data => { console.log(data) });
+        .then(data => { console.log(data);  });
 
-    refresh();
+    verDocumentos(`${coleccion}`);
 }
 
-function borrar(id) {
+function borrar(coleccion, id) {
     // if (confirm("El documento para " + documento.nombre + " va a ser eliminado. ¿Está seguro?")) {
     fetch('/api/articulos/' + id, { method: 'DELETE' })
         .then(res => res.json())
         .then(data => console.log(data));
-
-    refresh();
     // }
 }
