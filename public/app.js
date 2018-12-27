@@ -89,12 +89,12 @@ function insertar(coleccion, objeto) {
             .then(data => {
                 console.log(data);
                 OK.style.display = 'block';
-                setTimeout(() => OK.style.display = 'none', 1000);
+                setTimeout(() => OK.style.display = 'none', 1500);
                 verDocumentos(`${coleccion}`);
             })
             .catch(err => {
                 KO.style.display = 'block';
-                setTimeout(() => KO.style.display = 'none', 1000);
+                setTimeout(() => KO.style.display = 'none', 1500);
             });
 
     }
@@ -114,12 +114,12 @@ function modificar(coleccion, id, objeto) {
         .then(data => {
             console.log(data);
             OK.style.display = 'block';
-            setTimeout(() => OK.style.display = 'none', 1000);
+            setTimeout(() => OK.style.display = 'none', 1500);
             verDocumentos(`${coleccion}`);
         })
         .catch(err => {
             KO.style.display = 'block';
-            setTimeout(() => KO.style.display = 'none', 1000);
+            setTimeout(() => KO.style.display = 'none', 1500);
         });
 
 }
@@ -134,11 +134,11 @@ function eliminar(coleccion, id) {
         .then(data => {
             console.log(data);
             OK.style.display = 'block';
-            setTimeout(() => OK.style.display = 'none', 1000);
+            setTimeout(() => OK.style.display = 'none', 1500);
         })
         .catch(err => {
             KO.style.display = 'block';
-            setTimeout(() => KO.style.display = 'none', 1000);
+            setTimeout(() => KO.style.display = 'none', 1500);
         });
     // }
 }
