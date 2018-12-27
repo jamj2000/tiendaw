@@ -15,10 +15,6 @@ mongoose.connect(config.db_uri, { useNewUrlParser: true })
 
 
 // --- MIDDLEWARE
-app.use(express.static(path.join(__dirname , 'public'))); // Archivos estáticos
-app.use(express.json());                                  // Soporte de JSON
-app.use('/api', routes);                                  // Rutas
-
 // Para redirigir trafico HTTP a HTTPS
 app.use((req, res, next) => {
   if (req.header('x-forwarded-proto') !== 'https')
@@ -26,6 +22,12 @@ app.use((req, res, next) => {
   else
     next();
 });
+// Resto de middleware
+app.use(express.static(path.join(__dirname , 'public'))); // Archivos estáticos
+app.use(express.json());                                  // Soporte de JSON
+app.use('/api', routes);                                  // Rutas
+
+
 
 
 // ---- PUERTO DE ESCUCHA
