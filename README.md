@@ -19,7 +19,11 @@ Se utilizan los mínimos recursos (ya sean estos paquetes, librerías o framewor
 
 La interfaz está desarrollada en forma de SPA (Single Page Application).
 
-![Index](snapshots/tiendaw-articulos.png)
+![Inicio](snapshots/tiendaw-inicio.png)
+
+![Artículos](snapshots/tiendaw-articulos.png)
+
+![Clientes](snapshots/tiendaw-clientes.png)
 
 Los archivos utilizados son los siguientes:
 
@@ -32,6 +36,9 @@ Los archivos utilizados son los siguientes:
 ├── routes.js
 ├── config.js
 ├── public
+│   ├── manifest.json
+│   ├── service-worker.js
+│   ├── images/icons/*
 │   ├── favicon.png
 │   ├── index.html
 │   ├── style.css
