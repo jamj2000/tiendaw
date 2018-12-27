@@ -1,10 +1,4 @@
 
-/* 
-@media screen and (max-width: 400px) {
-  body {
-    background-color: white;
-  }
-} */
 /*  https://codepen.io/mlegakis/pen/jBYPGr  */
 
 :root {
@@ -42,12 +36,12 @@ body {
 
 nav {  
   padding: 10px;
-  _background-color: trasparent;
-  background-color: var(--bgcolor-menu);
+  _background-color: var(--bgcolor-menu);
+  background-color: #2196f3;
   width: 100%;
   position: fixed;
   font-weight: bolder;
-  color: var(--bgcolor-menu-text);
+  color: #ffffff;
   text-shadow: -2px -2px 8px rgb(0, 0, 0);
   text-shadow: 2px 2px 6px rgb(0, 0, 0);
   z-index: 1;
@@ -71,7 +65,13 @@ nav label {
 input[type=radio] + label {
   padding: 10px;
   background-color: transparent; 
-  color: rgb(80, 82, 88);
+}
+
+input[type=radio] + label:hover {
+  padding: 10px;
+  border-radius:  5px;
+  color: #000;
+  background:  #a8e7f5;
 }
 
 input[type=radio]:checked + label{
@@ -81,19 +81,14 @@ input[type=radio]:checked + label{
   color: #000;
 }
 
-
-div#info {
-  position: fixed;
-  top: 80px;
-  right: 10px;
-  border: solid 1px gray;
-  border-radius: 4px;
+div#OK, div#KO  {
   display: none;
-  font-size: .8em;
-  padding: 1em;
-  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+  position: fixed;
+  top: 60px;
+  right: 0px;
+  font-size: 60px;
+  background-color: transparent;
 }
-
 
 .seccion {
   padding-top: 80px;
@@ -101,7 +96,13 @@ div#info {
   display: none;
 }
 
+/* tr {
+  display: flex;
+  flex-wrap:wrap; 
+} */
+
 input {
+  _float: right;
   padding: 10px;
   font-size: 14px;
   color: black;
@@ -132,9 +133,6 @@ button {
   font-size: 1em;
   transition: all .3s ease-in-out;
 }
-
-
-
 
 button:hover {
   background: #fcefc6;
@@ -183,7 +181,32 @@ button.eliminar > span::after {
   content: " Eliminar"; 
 }
 
+label {
+  transition: all .3s ease-in-out;
+}
 
+label:hover {
+  background: #fcefc6;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+label#menu-inicio-label > span::after {
+  content: " Inicio"; 
+}
+
+label#menu-articulos-label > span::after {
+  content: " Artículos"; 
+}
+
+label#menu-clientes-label > span::after {
+  content: " Clientes"; 
+}
+
+
+
+/***************************
+DISEÑO DE TABLAS ADAPTATIVO
+***************************/
 
 
 /* Tables */
@@ -252,8 +275,11 @@ button.eliminar > span::after {
   padding: 4px 8px;
 }
 
-.sort-table th.nombre,
-.sort-table th.precio {
+.sort-table th.articulos-nombre,
+.sort-table th.articulos-precio,
+.sort-table th.clientes-nombre,
+.sort-table th.clientes-apellidos
+ {
   width: 30% !important;
 }
 
@@ -261,17 +287,27 @@ button.eliminar > span::after {
   width: 40% !important;
 }
 
-.sort-table .nombre {
+.sort-table .articulos-nombre,
+.sort-table .clientes-nombre  
+{
   font-weight: bold;
 }
 
-.sort-table .nombre small {
+.sort-table .articulos-nombre small,
+.sort-table .clientes-nombre small {
   font-weight: normal;
 }
 
 
 /* Responsive table full */
 @media (max-width: 767px) {
+  label#menu-inicio-label    > span::after,
+  label#menu-articulos-label > span::after,
+  label#menu-clientes-label  > span::after 
+  {
+    content: none; 
+  }
+
 
   table {
     font-size: 1em;
@@ -360,37 +396,43 @@ button.eliminar > span::after {
     padding: 10px;
   }
 
-  .sort-table th.nombre,
-  .sort-table th.precio,
+  .sort-table th.articulos-nombre,
+  .sort-table th.articulos-precio,
+  .sort-table th.clientes-nombre,
+  .sort-table th.clientes-apellidos,
   .sort-table th.operacion {
     width: 100px !important;
   }
 
-  .sort-table td.nombre:before {
+  .sort-table td.articulos-nombre:before,
+  .sort-table td.clientes-nombre:before
+  {
     display: none;
   }
 
-  .sort-table td.nombre {
+  .sort-table td.articulos-nombre,
+  .sort-table td.clientes-nombre
+  {
     letter-spacing: .03em;
     padding-left: 14px;
   }
-  .sort-table td.nombre > input {
+
+  .sort-table td.articulos-nombre > input 
+  .sort-table td.clientes-nombre > input
+  {
     font-weight:bold;
   }
+
 }
 
 @media (max-width:1024px) {  
-  button.insertar > span::after {
+  button.insertar  > span::after,
+  button.modificar > span::after,
+  button.eliminar  > span::after 
+  {
     content: none; 
   }
   
-  button.modificar > span::after {
-    content: none; 
-  }
-  
-  button.eliminar > span::after {
-    content: none; 
-  }
   table {
     font-size: .944444em;
   }

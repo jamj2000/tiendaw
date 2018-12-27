@@ -34,13 +34,13 @@
 
   <nav>
     <input name="menu-opcion" type="radio" id="menu-inicio" checked>
-    <label for="menu-inicio"> 🏠 Inicio</label>
+    <label for="menu-inicio" id="menu-inicio-label"> <span> 🏠 </span></label>
 
     <input name="menu-opcion" type="radio" id="menu-articulos">
-    <label for="menu-articulos"> 🛒 Artículos</label>
+    <label for="menu-articulos" id="menu-articulos-label"> <span> 🛒 </span></label>
 
     <input name="menu-opcion" type="radio" id="menu-clientes">
-    <label for="menu-clientes"> 🧑 Clientes</label>
+    <label for="menu-clientes" id="menu-clientes-label"> <span> 🧑 </span></label>
   </nav>
 
   <main id="contenido">
@@ -48,6 +48,9 @@
     <div class="seccion" id="articulos"></div>
     <div class="seccion" id="clientes"></div>
   </main>
+
+  <div id="OK"> 😊 </div>
+  <div id="KO"> 😟 </div>
 
   <script>
     // Si está soportado serviceWorker por el navegador

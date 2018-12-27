@@ -4,13 +4,11 @@
    - https://codepen.io/mlegakis/pen/jBYPGr
    */
 
+
 let colecciones = {
-    articulos: ["nombre", "precio"],
-    clientes: ["nombre", "apellidos"]
+    articulos: { nombre: 'string', precio: 'number' },
+    clientes: { nombre: 'string', apellidos: 'string' }
 };
-
-let articuloColNames = ["nombre", "precio"];
-
 
 let index = `
      <div style="margin: 50px">
@@ -30,126 +28,228 @@ let index = `
 
 window.addEventListener('load', function () {
 
-    let inicio = document.getElementById('inicio')
-    inicio.innerHTML = index;
-    inicio.style.display = 'block';
+    let i = document.getElementById('inicio');
+    let a = document.getElementById('articulos');
+    let c = document.getElementById('clientes');
+
+    i.innerHTML = index;
+    i.style.display = 'block';
 
     document.getElementById('menu-inicio').addEventListener('click', function (e) {
-        document.getElementById('inicio').style.display = 'block';
-        document.getElementById('articulos').style.display = 'none';
-        document.getElementById('clientes').style.display = 'none';
+        i.style.display = 'block';
+        a.style.display = 'none';  a.innerHTML = '';
+        c.style.display = 'none';  c.innerHTML = '';       
     });
 
     document.getElementById('menu-articulos').addEventListener('click', function (e) {
-        document.getElementById('inicio').style.display = 'none';
-        document.getElementById('articulos').style.display = 'block';
-        document.getElementById('clientes').style.display = 'none';
-        verDocumentos('articulos')
+        verDocumentos('articulos');
+        a.style.display = 'block';
+        i.style.display = 'none';
+        c.style.display = 'none';  c.innerHTML = '';       
     });
 
     document.getElementById('menu-clientes').addEventListener('click', function (e) {
-        document.getElementById('inicio').style.display = 'none';
-        document.getElementById('articulos').style.display = 'none';
-        document.getElementById('clientes').style.display = 'block';
-        verDocumentos('clientes')
+        verDocumentos('clientes');
+        c.style.display = 'block';
+        i.style.display = 'none';  
+        a.style.display = 'none';  a.innerHTML = '';
     });
 
 });
 
+
+/*--------------------
+ OPERACIONES CRUD 
+--------------------*/
+
+function verDocumentos(coleccion) {
+    fetch(`/api/${coleccion}`,
+        {
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById(`${coleccion}`).innerHTML
+                = json2table(coleccion, data, "table-responsive-full sort-table")
+        })
+
+}
+
+
+function insertar(coleccion, objeto) {
+    if (Object.values(objeto).every(x => (x !== null && x !== ''))) {
+    
+        fetch(`/api/${coleccion}`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(objeto)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                OK.style.display = 'block';
+                setTimeout(() => OK.style.display = 'none', 1000);
+                verDocumentos(`${coleccion}`);
+            })
+            .catch(err => {
+                KO.style.display = 'block';
+                setTimeout(() => KO.style.display = 'none', 1000);
+            });
+
+    }
+}
+
+
+function modificar(coleccion, id, objeto) {
+    // let objeto = { nombre: campo1, precio: campo2 };
+
+    fetch(`/api/${coleccion}/${id}`,
+        {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(objeto)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            OK.style.display = 'block';
+            setTimeout(() => OK.style.display = 'none', 1000);
+            verDocumentos(`${coleccion}`);
+        })
+        .catch(err => {
+            KO.style.display = 'block';
+            setTimeout(() => KO.style.display = 'none', 1000);
+        });
+
+}
+
+function eliminar(coleccion, id) {
+    // if (confirm("El documento para " + documento.nombre + " va a ser eliminado. ¿Está seguro?")) {
+    fetch(`/api/${coleccion}/${id}`,
+        {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            OK.style.display = 'block';
+            setTimeout(() => OK.style.display = 'none', 1000);
+        })
+        .catch(err => {
+            KO.style.display = 'block';
+            setTimeout(() => KO.style.display = 'none', 1000);
+        });
+    // }
+}
+
+/*--------------------
+ FUNCIONES AUXILIARES 
+--------------------*/
+
+function entradaOK() {
+    return true;
+}
+
+
+// Función para CONVERTIR JSON A TABLA HTML
 function json2table(collection, jsonData, classes) {
 
     classes = classes || '';
 
-    // let colNames = Object.keys(jsonData[0]);
-    let colNames = colecciones[collection];
-    let headerRow = '';
-    let bodyRows = '';
+    let colNames = Object.keys(colecciones[collection]);
 
-    let tabla = `
-      <table id="content-table" class="${classes}">
-        <thead>${headerRow}</thead>
-        <tbody>${bodyRows}</tbody>
-      </table>`;
+    let botonesOrdenar = (campo) => `
+<div class="sort-table-arrows">
+    <button class="button" title="ascendente" onclick="
+        sort(true, '${collection}-${campo}', 'content-table')">
+    <span>⬇️</span>
+    </button>
+    <button class="button" title="descendente" onclick="
+        sort(false, '${collection}-${campo}', 'content-table')">
+    <span>⬆️</span>
+    </button>
+</div>`;
 
-    let filaInsertar = `
-       <tr>
-         <td data-label="Nombre" class="nombre">
-           <input id="campo1" name="nombre" type="text" value=""></input></td>
-         <td data-label="Precio" class="precio">
-           <input id="campo2" name="precio" type="number" min="0" max="9999.99" step=".01" style="text-align: right;" value=""></input></td>
-         <td data-label="Operacion" class="operacion">
-           <button class="insertar" title="Insertar" onclick="insertar('${collection}', document.getElementById('campo1').value, parseFloat((document.getElementById('campo2')).value));">
-         <span>✏️</span></button></td>
-       </tr> `;
+    let botonInsertar = `
+<button class="insertar" title="Insertar" onclick="
+    insertar('${collection}',  { 
+        ${colNames[0]}: document.getElementById('${collection}.${colNames[0]}').value,
+        ${colNames[1]}: document.getElementById('${collection}.${colNames[1]}').value
+    }) ">
+<span>✏️</span>
+</button>
+`;
 
-    let celdaDatos = (documento, campo) => `
-       <td data-label="${campo}" class="${campo}">
-         <input 
-            id="${documento._id}.${campo}" 
-            value="${typeof documento[campo] == 'number' ? documento[campo].toFixed(2) : documento[campo]}"
-            ${typeof documento[campo] == 'number' ? 'type="number" min="0" max="9999.99" step=".01" style="text-align: right;"' : 'type="text" '}>
-       </td>`;
+    let botonModificar = (fila) => `
+<button class="modificar" title="Modificar" onclick="
+    modificar ('${collection}', '${fila._id}', {
+        ${colNames[0]}: document.getElementById('${fila._id}.${colNames[0]}').value, 
+        ${colNames[1]}: document.getElementById('${fila._id}.${colNames[1]}').value 
+    }) ">
+<span>📝</span>
+</button>
+`;
+
+    let botonEliminar = (fila) => `
+<button class="eliminar" title="Eliminar" onclick="
+    eliminar('${collection}', '${fila._id}'); 
+    document.getElementById('${fila._id}').remove()">
+<span>❌</span>
+</button>
+`;
+
+    let celdaInsertar = `
+<td data-label="operacion" class="operacion">${botonInsertar}</td>`;
 
     let celdaModificarEliminar = (row) => `
-        <td data-label="Operacion" class="operacion">
-          <button class="modificar" title="Modificar" 
-             onclick="modificar('${collection}', '${row._id}', document.getElementById('${row._id}.${articuloColNames[0]}').value, document.getElementById('${row._id}.${articuloColNames[1]}').value)
-      "><span>📝</span> </button>
-          <button class="eliminar" title="Eliminar" 
-             onclick="borrar('${collection}', '${row._id}'); document.getElementById('${row._id}').remove()"><span>❌</span></button>
-        </td>`;
-
-    if (jsonData.length == 0)
-        return `<table id="content-table" class="${classes}">
-                   <thead>
-                     <tr>
-                       <th>Nombre</th><th>Precio</th><th>Operacion</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                     ${filaInsertar}
-                   </tbody>
-                 </table>`;
-
-    let ordenarColumna = (nombreColumna) => `
-     <div class="sort-table-arrows">
-         <a  style="text-decoration: none" href="javascript:sort(true, '${nombreColumna}', 'content-table');">
-           <button class="button" title="ascendente">🔽</button>
-         </a>
-         <a href="javascript:sort(false, '${nombreColumna}', 'content-table');">
-           <button class="button" title="descendente">🔼</button>
-         </a>
-     </div>`;
+<td data-label="operacion" class="operacion">${botonModificar(row)} ${botonEliminar(row)}</td>`;
 
 
-    // CABECERA
-    headerRow = `<tr>`;
+    let celdaSinDatos = (campo) => `
+<td data-label="${collection}-${campo}" class="${collection}-${campo}">
+<input id="${collection}.${campo}" 
+    ${colecciones[collection][campo] == 'number'
+            ? 'type="number" min="0" max="9999.99" step=".01" style="text-align: right;"'
+            : 'type="text" '}  >
+</td>`;
 
-    colNames
-        .filter(colName => colName != '_id' && colName != '__v')
-        .map(colName => headerRow += `<th class="${colName}"> ${colName} ${ordenarColumna(colName)} </th>`);
 
-    headerRow += `<th class="operacion">Operación</th>
-                     </tr>`;
+    let celdaConDatos = (documento, campo) => `
+<td data-label="${collection}-${campo}" class="${collection}-${campo}">
+<input id="${documento._id}.${campo}" 
+    ${colecciones[collection][campo] == 'number'
+            ? 'type="number" min="0" max="9999.99" step=".01" style="text-align: right;" '
+            : 'type="text" '}  
+    value="${colecciones[collection][campo] == 'number'
+            ? documento[campo].toFixed(2)
+            : documento[campo]}" 
+    >
+</td>`;
 
-    // CUERPO: Convertimos a HTML cada fila de datos json.
-    // ------------- Añadimos una fila vacía para inserciones
-    bodyRows += filaInsertar;
-    // ------------- Añadimos filas con los datos y botones de modificar y eliminar
-    jsonData.map(function (row) {
-        bodyRows += `<tr id="${row._id}">`;
-        colNames.filter(colName => colName != '_id' && colName != '__v')
-            .map(colName => bodyRows += celdaDatos(row, colName));
 
-        bodyRows += celdaModificarEliminar(row);
-        bodyRows += '</tr>';
-        // ------------ Fin Añadimos filas con los datos
-    });
+    let table = `
+<table id="content-table" class="${classes}">
+<thead>
+    <tr> 
+    ${colNames.map(colName => `<th class="${collection}-${colName}"> ${colName} ${botonesOrdenar(colName)} </th>`).join(' ')}
+    <th class="operacion">Operación</th> 
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    ${colNames.map(colName => celdaSinDatos(colName)).join(' ')} ${celdaInsertar}
+    </tr> 
+    ${jsonData.map(row =>
+        `<tr id="${row._id}">${colNames.map(colName => celdaConDatos(row, colName)).join(' ')} ${celdaModificarEliminar(row)}
+         </tr>`
+    ).join(' ')}
+</tbody>
+</table>`;
 
-    return `<table id="content-table" class="${classes}">
-                 <thead>${headerRow}</thead>
-                 <tbody>${bodyRows}</tbody>
-               </table>`;
+    // console.log(table);  // Para depuración
+
+    return table;
 }
 
 
@@ -179,66 +279,3 @@ function sort(ascending, columnClassName, tableId) {
     }
 };
 
-
-
-/*
---------------------
- OPERACIONES CRUD 
---------------------
- */
-
-function insertar(coleccion, campo1, campo2) {
-    let objeto = { nombre: campo1, precio: campo2 };
-
-    if (objeto.nombre !== '' && objeto.precio !== '') {
-        fetch(`/api/${coleccion}`,
-            {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(objeto)
-            })
-            .then(res => res.json())
-            .then(data => { console.log(data); });
-
-        verDocumentos(`${coleccion}`);
-
-    }
-}
-
-function verDocumentos(coleccion) {
-    fetch(`/api/${coleccion}`,
-        {
-            method: 'GET'
-        })
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById(`${coleccion}`).innerHTML
-                = json2table(coleccion, data, "table-responsive-full sort-table")
-        });
-}
-
-function modificar(coleccion, id, campo1, campo2) {
-    let objeto = { nombre: campo1, precio: campo2 };
-
-    fetch(`/api/${coleccion}/${id}`,
-        {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(objeto)
-        })
-        .then(res => res.json())
-        .then(data => { console.log(data); });
-
-    verDocumentos(`${coleccion}`);
-}
-
-function borrar(coleccion, id) {
-    // if (confirm("El documento para " + documento.nombre + " va a ser eliminado. ¿Está seguro?")) {
-    fetch(`/api/${coleccion}/${id}`,
-        {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => console.log(data));
-    // }
-}
