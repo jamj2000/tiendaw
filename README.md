@@ -1,5 +1,5 @@
 # tiendaw
-# FullStack MEN (MongoDB + Express + Nodejs) + PWA.Ejemplo didáctico.
+# PWA + FullStack MEN (MongoDB + Express + Nodejs).Ejemplo didáctico.
 
 [![Build Status](https://travis-ci.org/jamj2000/tiendaw.svg?branch=master)](https://travis-ci.org/jamj2000/tiendaw)
 
@@ -226,7 +226,46 @@ Si deseas hacer un despligue usando los servicios proporcionados por los sitios 
 
 10. En la parte superior derecha de la página, pulsa en el boton `More` y luego en `Restart all dynos`.
 
+
+## Instalación de PWA
+
   
+  ![pwa-desktop-instalar1](snapshots/pwa/pwa-desktop-instalar1.png)
+  
+  ![pwa-desktop-instalar2](snapshots/pwa/pwa-desktop-instalar2.png)
+  
+  ![pwa-desktop-instalada](snapshots/pwa/pwa-desktop-instalada.png)
+
+  ![pwa-desktop-abrir](snapshots/pwa/pwa-desktop-abrir.png)
+  
+  ![pwa-desktop-inicio](snapshots/pwa/pwa-desktop-inicio.png)
+  
+  ![pwa-desktop-articulos](snapshots/pwa/pwa-desktop-articulos.png)
+  
+  ![pwa-desktop-clientes](snapshots/pwa/pwa-desktop-clientes.png)
+  
+  ![pwa-desktop-lighthouse1](snapshots/pwa/pwa-desktop-lighthouse1.png)
+  
+  ![pwa-desktop-lighthouse2](snapshots/pwa/pwa-desktop-lighthouse2.png)
+  
+  ![pwa-desktop-lighthouse3](snapshots/pwa/pwa-desktop-lighthouse3.png)
+
+  ![pwa-desktop-desinstalar](snapshots/pwa/pwa-desktop-desinstalar.png)
+
+
+  ![PWA-android-instalar1](snapshots/pwa/PWA-android-instalar1.png)
+  
+  ![PWA-android-instalar2](snapshots/pwa/PWA-android-instalar2.png)
+  
+  ![PWA-android-instalar3](snapshots/pwa/PWA-android-instalar3.png)
+
+  ![PWA-android-instalada](snapshots/pwa/PWA-android-instalada.png)
+
+  ![PWA-android-inicio](snapshots/pwa/PWA-android-inicio.png)
+
+  ![PWA-android-articulos](snapshots/pwa/PWA-android-articulos.png)
+  
+  ![PWA-android-screenshot](snapshots/pwa/PWA-android-screenshot.png)
   
 
 
