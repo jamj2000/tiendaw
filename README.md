@@ -19,7 +19,7 @@ Se utilizan los mínimos recursos (ya sean estos paquetes, librerías o framewor
 
 La interfaz está desarrollada en forma de SPA (Single Page Application).
 
-![Index](snapshots/tiendaw-app2-articulos.png)
+![Index](snapshots/tiendaw-articulos.png)
 
 Los archivos utilizados son los siguientes:
 
