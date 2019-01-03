@@ -244,9 +244,9 @@ Como el lector entendido en el asunto comprenderá rápidamente, las implicacion
 
 - **Desarrollo para web, para escritorio y para móvil. Todo en uno.**
 - **Simplificación del desarrollo**. 
-  - Menos lenguajes (Java, Swift) y plataformas a aprender.
+  - "No es necesario" aprender lenguajes como Java o Swift.
   - "No es necesario" desarrollar de forma nativa (SDKs para Android e iOS).
-  - "No es necesario" desarrollar de forma híbrida (Frameworks Cordova, React Native)
+  - "No es necesario" desarrollar de forma híbrida (Frameworks Cordova, React Native, Angular Ionic. Electron para el escritorio)
 - **Uso de Web APIs**, las cuales [son bastantes, muchas de ellas aún en desarrollo](https://developer.mozilla.org/en-US/docs/Web/API): fetch, websockets, geolocalización, audio, speech, ... 
  
 
@@ -266,11 +266,12 @@ En las fechas en las que escribo esto (**Diciembre 2018**), el soporte para Apli
 
 El escritorio usado ha sido KDE bajo sistema operativo GNU/Linux. Los datos detallados se muestran a continuación: 
 
+- Google Chrome Versión 71.0.3578.98 (Build oficial) (64 bits)
 - Distribución Linux KDE neon 5.14 
   - KDE Frameworks 5.53.0
   - Qt 5.11.2 (compilado con 5.11.2)
   - El sistema de ventanas xcb
-- Google Chrome Versión 71.0.3578.98 (Build oficial) (64 bits)
+
 
 
 
