@@ -273,46 +273,94 @@ El escritorio usado ha sido KDE bajo sistema operativo GNU/Linux. Los datos deta
   - El sistema de ventanas xcb
 
 
+Para instalar en el escritorio a través del navegador Chrome, seguimos los siguientes pasos.
 
+1. Pulsamos en el menú del navegador y luego en **Instalar ...**
 
   ![pwa-desktop-instalar1](snapshots/pwa/pwa-desktop-instalar1.png)
   
+2. Confirmamos
+
   ![pwa-desktop-instalar2](snapshots/pwa/pwa-desktop-instalar2.png)
-  
+
+3. Una vez instalada nos aparecerá un icono en el escritorio.
+
   ![pwa-desktop-instalada](snapshots/pwa/pwa-desktop-instalada.png)
 
+4. Es posible abrir la aplicación desde el navegador, pulsando en el menú y luego en **Abrir ...**
+
   ![pwa-desktop-abrir](snapshots/pwa/pwa-desktop-abrir.png)
-  
+
+5. No obstante, es más cómodo hacerlo desde el icono del escritorio.
+
   ![pwa-desktop-inicio](snapshots/pwa/pwa-desktop-inicio.png)
   
+6. Una vez hecho, veremos una ventana con la aplicación.  
+
   ![pwa-desktop-articulos](snapshots/pwa/pwa-desktop-articulos.png)
   
   ![pwa-desktop-clientes](snapshots/pwa/pwa-desktop-clientes.png)
+
+
+### Auditoría de aplicación web
+
+Podemos realizar una auditoría de la aplicación, haciendo uso de la extensión **Lighthouse** de Chrome. Para instalar dicha extensión en el navegador chrome escribimos la URL chrome://extensions/.
+
+Una vez instalada la extensión, pulsamos en su icono.
   
   ![pwa-desktop-lighthouse1](snapshots/pwa/pwa-desktop-lighthouse1.png)
   
+Y luego en **Generate report**
+
   ![pwa-desktop-lighthouse2](snapshots/pwa/pwa-desktop-lighthouse2.png)
-  
+
+A continuación se nos mostrará un informe similar al siguiente.
+
   ![pwa-desktop-lighthouse3](snapshots/pwa/pwa-desktop-lighthouse3.png)
+
+### Desinstalacción en PC o Portátil
+
+Por último, si deseamos desinstalar la aplicación, bastará con pulsar en el menú de la ventana y luego en **Desinstalar ...**
 
   ![pwa-desktop-desinstalar](snapshots/pwa/pwa-desktop-desinstalar.png)
 
 
 ### Instalación en móvil Android
 
+Cuando accedemos a la URL de la aplicación mediante el navegador Chrome, y éste detecta que se trata de una PWA, nos mostrará en la parte inferior de la pantalla del móvil un mensaje para añadir la aplicación web a la pantalla de inicio. El proceso es similar a la instalación de una aplicación Android nativa, aunque suele ser menos pesado y ocupar menos espacio de disco.
+
+A continuación se muestran algunas capturas de pantalla.
+
+Primero pulsamos en el mensaje **Añadir ... a la pantalla de inicio** que aparece en la parte inferior de la pantalla.
+
   ![PWA-android-instalar1](snapshots/pwa/PWA-android-instalar1.png)
-  
+
+Confirmamos.
+
   ![PWA-android-instalar2](snapshots/pwa/PWA-android-instalar2.png)
-  
+
+Y podemos ver los detalles de la instalación.
+
   ![PWA-android-instalar3](snapshots/pwa/PWA-android-instalar3.png)
 
+
+Si no nos aparece el mensaje de instalación en la parte inferior de la pantalla, tenemos otra forma de hacerlo mediante el uso del menú del navegador.
+
+  ![PWA-android-add-inicio](snapshots/pwa/PWA-android-add-inicio.png)
+
+Una vez instalada la aplicación se nos creará un acceso directo en la pantalla de nuestro móvil.
+
   ![PWA-android-instalada](snapshots/pwa/PWA-android-instalada.png)
+
+Si abrimos la aplicación veremos algo similar a lo siguiente.
 
   ![PWA-android-inicio](snapshots/pwa/PWA-android-inicio.png)
 
   ![PWA-android-articulos](snapshots/pwa/PWA-android-articulos.png)
   
+A todos los efectos la aplicación aparece en Android como si de una aplicación nativa se tratese. Observese que no no aparece incrustada dentro del navegador, sino como aplicación independiente.
+
   ![PWA-android-screenshot](snapshots/pwa/PWA-android-screenshot.png)
   
-
+Para desinstalar una aplicación en Android bastará con arrastrarla a la papelera.
 
