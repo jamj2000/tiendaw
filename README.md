@@ -264,14 +264,13 @@ En las fechas en las que escribo esto (**Diciembre 2018**), el soporte para Apli
 
 ### Instalacción en PC o Portátil
 
-El escritorio usado ha sido KDE bajo sistema operativo GNU/Linux. Los datos detallados se muestran a continuación: 
+El escritorio usado ha sido KDE bajo sistema operativo GNU/Linux. Las especificaciones concretas se muestran a continuación: 
 
 - Google Chrome Versión 71.0.3578.98 (Build oficial) (64 bits)
-- Distribución Linux KDE neon 5.14 
+- Distribución Linux KDE neon 18.04 LTS
   - KDE Frameworks 5.53.0
   - Qt 5.11.2 (compilado con 5.11.2)
   - El sistema de ventanas xcb
-
 
 Para instalar en el escritorio a través del navegador Chrome, seguimos los siguientes pasos.
 
