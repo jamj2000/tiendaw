@@ -358,7 +358,7 @@ Si abrimos la aplicación veremos algo similar a lo siguiente.
 
   ![PWA-android-articulos](snapshots/pwa/PWA-android-articulos.png)
   
-A todos los efectos la aplicación aparece en Android como si de una aplicación nativa se tratese. Observese que no no aparece incrustada dentro del navegador, sino como aplicación independiente.
+A todos los efectos la aplicación aparece en Android como si de una aplicación nativa se tratese. Observese que no aparece incrustada dentro del navegador, sino como aplicación independiente.
 
   ![PWA-android-screenshot](snapshots/pwa/PWA-android-screenshot.png)
   
