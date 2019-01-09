@@ -292,10 +292,10 @@ Para instalar en el escritorio a través del navegador Chrome, seguimos los sigu
 
 5. No obstante, es más cómodo hacerlo desde el icono del escritorio.
 
-  ![pwa-desktop-inicio](snapshots/pwa/pwa-desktop-inicio.png)
-  
 6. Una vez hecho, veremos una ventana con la aplicación.  
 
+  ![pwa-desktop-inicio](snapshots/pwa/pwa-desktop-inicio.png)
+  
   ![pwa-desktop-articulos](snapshots/pwa/pwa-desktop-articulos.png)
   
   ![pwa-desktop-clientes](snapshots/pwa/pwa-desktop-clientes.png)
