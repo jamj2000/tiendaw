@@ -1,4 +1,4 @@
-# tiendaw
+# tiendaw (Ejemplo didáctico)
 # PWA + FullStack MEN (MongoDB + Express + Nodejs).Ejemplo didáctico.
 
 [![Build Status](https://travis-ci.org/jamj2000/tiendaw.svg?branch=master)](https://travis-ci.org/jamj2000/tiendaw)
