@@ -147,11 +147,6 @@ function eliminar(coleccion, id) {
  FUNCIONES AUXILIARES 
 --------------------*/
 
-function entradaOK() {
-    return true;
-}
-
-
 // Función para CONVERTIR JSON A TABLA HTML
 function json2table(collection, jsonData, classes) {
 
