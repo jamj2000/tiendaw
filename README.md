@@ -363,3 +363,4 @@ A todos los efectos la aplicación aparece en Android como si de una aplicación
   
 Para desinstalar una aplicación en Android bastará con arrastrarla a la papelera.
 
+ ![PWA-android-desinstalar](snapshots/pwa/PWA-android-desinstalar.png)
