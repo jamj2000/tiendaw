@@ -17,7 +17,7 @@ mongoose.connect(config.db_uri, { useNewUrlParser: true })
 // --- MIDDLEWARE
 // Para redirigir trafico HTTP a HTTPS
 app.use((req, res, next) => {
-  if (req.header('x-forwarded-proto') !== 'https')
+  if (req.header('x-forwarded-proto') !== 'https'   &&  process.env.PORT  )
     res.redirect(`https://${req.header('host')}${req.url}`);
   else
     next();
