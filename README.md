@@ -374,13 +374,23 @@ Para desinstalar una aplicación en Android bastará con arrastrarla a la papele
   - [Demo en Heroku+mLab](https://almacenw.herokuapp.com/)
 - **Bermudo Delgado, Juan de Dios** :octocat: [Taller](https://github.com/ezxioj87) 
   - [Demo en Heroku+mLab](https://tallerdaw.herokuapp.com/)
-- [Cruz Díaz, Jesús Diego](https://github.com/diegocd) :octocat: `diegocd`
-- [Delgado Marín, Jesús](https://github.com/Jesusdm92) :octocat: `Jesusdm92`
-- [Gómez Carmona, Ramón Jesús](https://github.com/ComandPromt) :octocat: `ComandPromt`
-- [Márquez Pérez, José Antonio](https://github.com/santonio97) :octocat: `santonio97`
-- [Martín Prieto, Manuel Jesús](https://github.com/M25R4PTOR) :octocat: `M25R4PTOR`
-- [Morano Pérez, David](https://github.com/davidmoranoperez) :octocat: `davidmoranoperez`
-- [Paniagua Gálvez, Amelia]( https://github.com/AmeliaPaniagua) :octocat: `AmeliaPaniagua`
-- [Pérez Rueda, Sergio](https://github.com/sergioperezrueda) :octocat: `sergioperezrueda`
-- [Quesada Palmero, Iván](https://github.com/ivanquesadapalmero) :octocat: `ivanquesadapalmero`
-- [Sánchez Torrijo, Miguel](https://github.com/miguelst1) :octocat: `miguelst1`
+- **Cruz Díaz, Jesús Diego**  :octocat: [Instituto](https://github.com/diegocd/instituto)
+  - [Demo en Heroku+mLab](https://institutow.herokuapp.com/)
+- **Delgado Marín, Jesús** :octocat: [Vivero de plantas](https://github.com/Jesusdm92/viveroplantas) 
+  - [Demo en Heroku+mLab](https://viveroplantas.herokuapp.com/)
+- **Gómez Carmona, Ramón Jesús** :octocat: [Supermercado](https://github.com/ComandPromt/Supermercado---Node-JS)  
+  - [Demo en Heroku+mLab](https://supermercadonode.herokuapp.com/) 
+- **Márquez Pérez, José Antonio** :octocat: [Concesionario](https://github.com/santonio97/concesionario) 
+  - [Demo en Heroku+mLab](https://concensionariow.herokuapp.com/) 
+- **Martín Prieto, Manuel Jesús** :octocat: [Armeria](https://github.com/M25R4PTOR/Armeria) 
+  - [Demo en Heroku+mLab](https://daw-armeria.herokuapp.com/) 
+- **Morano Pérez, David** :octocat: [Mensajería](https://github.com/davidmoranoperez/Mensajeria) 
+  - [Demo en Heroku+mLab](https://mensajeriaw.herokuapp.com/) 
+- **Paniagua Gálvez, Amelia** :octocat: [Mercería](https://github.com/AmeliaPaniagua/Merceria)
+  - [Demo en Heroku+mLab](https://merceria.herokuapp.com/) 
+- **Pérez Rueda, Sergio** :octocat: [Ganadería](https://github.com/sergioperezrueda/Ganaderia)
+  - [Demo en Heroku+mLab](https://ganaderiaw.herokuapp.com/) 
+- **Quesada Palmero, Iván** :octocat: [Meteorología](https://github.com/ivanquesadapalmero/Meteorologia)
+  - [Demo en Heroku+mLab](https://meteorologiaw.herokuapp.com/) 
+- **Sánchez Torrijo, Miguel** :octocat: [Hospital](https://github.com/miguelst1/Hospital)
+  - [Demo en Heroku+mLab](https://hospitalw.herokuapp.com/) 
