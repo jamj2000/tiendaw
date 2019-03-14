@@ -368,10 +368,12 @@ Para desinstalar una aplicación en Android bastará con arrastrarla a la papele
 
 ### Listado de aplicaciones de mi alumnado
 
-- :octocat: **Álvarez-Ossorio Martín, Rafael**
-  - [Gestión de Olivar](https://github.com/raom30/gestion-olivar)  [Demo en Heroku+mLab](https://gestion-olivar.herokuapp.com/) 
-- [Atenciano Rodríguez, Daniel](https://github.com/daniatenciano) :octocat: `daniatenciano`
-- [Bermudo Delgado, Juan de Dios](https://github.com/ezxioj87) :octocat: `ezxioj87`
+- **Álvarez-Ossorio Martín, Rafael** :octocat: [Gestión del Olivar](https://github.com/raom30/gestion-olivar) 
+  - [Demo en Heroku+mLab](https://gestion-olivar.herokuapp.com/) 
+- **Atenciano Rodríguez, Daniel** :octocat: [Almacenes](https://github.com/daniatenciano/Almacenes)
+  - [Demo en Heroku+mLab](https://almacenw.herokuapp.com/)
+- **Bermudo Delgado, Juan de Dios** :octocat: [Taller](https://github.com/ezxioj87) 
+  - [Demo en Heroku+mLab](https://tallerdaw.herokuapp.com/)
 - [Cruz Díaz, Jesús Diego](https://github.com/diegocd) :octocat: `diegocd`
 - [Delgado Marín, Jesús](https://github.com/Jesusdm92) :octocat: `Jesusdm92`
 - [Gómez Carmona, Ramón Jesús](https://github.com/ComandPromt) :octocat: `ComandPromt`
