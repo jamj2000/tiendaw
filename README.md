@@ -381,7 +381,7 @@ Para desinstalar una aplicación en Android bastará con arrastrarla a la papele
 - **Gómez Carmona, Ramón Jesús** :octocat: [Supermercado](https://github.com/ComandPromt/Supermercado---Node-JS)  
   - [Demo en Heroku+mLab](https://supermercadonode.herokuapp.com/) 
 - **Márquez Pérez, José Antonio** :octocat: [Concesionario](https://github.com/santonio97/concesionario) 
-  - [Demo en Heroku+mLab](https://concensionariow.herokuapp.com/) 
+  - [Demo en Heroku+mLab](https://concesionariow.herokuapp.com/) 
 - **Martín Prieto, Manuel Jesús** :octocat: [Armeria](https://github.com/M25R4PTOR/Armeria) 
   - [Demo en Heroku+mLab](https://daw-armeria.herokuapp.com/) 
 - **Morano Pérez, David** :octocat: [Mensajería](https://github.com/davidmoranoperez/Mensajeria) 
