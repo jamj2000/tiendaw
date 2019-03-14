@@ -364,3 +364,21 @@ A todos los efectos la aplicación aparece en Android como si de una aplicación
 Para desinstalar una aplicación en Android bastará con arrastrarla a la papelera.
 
  ![PWA-android-desinstalar](snapshots/pwa/PWA-android-desinstalar.png)
+
+
+### Listado de aplicaciones de mi alumnado
+
+- :octocat: **Álvarez-Ossorio Martín, Rafael**
+  - [Gestión de Olivar](https://github.com/raom30/gestion-olivar)  [Demo en Heroku+mLab](https://gestion-olivar.herokuapp.com/) 
+- [Atenciano Rodríguez, Daniel](https://github.com/daniatenciano) :octocat: `daniatenciano`
+- [Bermudo Delgado, Juan de Dios](https://github.com/ezxioj87) :octocat: `ezxioj87`
+- [Cruz Díaz, Jesús Diego](https://github.com/diegocd) :octocat: `diegocd`
+- [Delgado Marín, Jesús](https://github.com/Jesusdm92) :octocat: `Jesusdm92`
+- [Gómez Carmona, Ramón Jesús](https://github.com/ComandPromt) :octocat: `ComandPromt`
+- [Márquez Pérez, José Antonio](https://github.com/santonio97) :octocat: `santonio97`
+- [Martín Prieto, Manuel Jesús](https://github.com/M25R4PTOR) :octocat: `M25R4PTOR`
+- [Morano Pérez, David](https://github.com/davidmoranoperez) :octocat: `davidmoranoperez`
+- [Paniagua Gálvez, Amelia]( https://github.com/AmeliaPaniagua) :octocat: `AmeliaPaniagua`
+- [Pérez Rueda, Sergio](https://github.com/sergioperezrueda) :octocat: `sergioperezrueda`
+- [Quesada Palmero, Iván](https://github.com/ivanquesadapalmero) :octocat: `ivanquesadapalmero`
+- [Sánchez Torrijo, Miguel](https://github.com/miguelst1) :octocat: `miguelst1`
