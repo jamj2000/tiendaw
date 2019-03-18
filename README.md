@@ -369,6 +369,8 @@ Para desinstalar una aplicación en Android bastará con arrastrarla a la papele
 
 ### Listado de aplicaciones de mi alumnado
 
+NOTA: La primera carga de la aplicación puede tardar un poquito. No es problema de la aplicación. Es que heroku proporciona un servicio virtualizado. Si en el plan Free, una aplicación no recibe visitas durante media hora, la "máquina virtual" que contiene el servicio se apaga. Por tanto en la siguiente visita dicha "máquina virtual" deberá volver a lanzarse. 
+
 - **Álvarez-Ossorio Martín, Rafael** :octocat: [Gestión del Olivar](https://github.com/raom30/gestion-olivar) 
   - [Demo en Heroku+mLab](https://gestion-olivar.herokuapp.com/) 
 - **Atenciano Rodríguez, Daniel** :octocat: [Almacenes](https://github.com/daniatenciano/Almacenes)
