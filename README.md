@@ -375,7 +375,7 @@ NOTA: La primera carga de la aplicación puede tardar un poquito. No es problema
   - [Demo en Heroku+mLab](https://gestion-olivar.herokuapp.com/) 
 - **Atenciano Rodríguez, Daniel** :octocat: [Almacenes](https://github.com/daniatenciano/Almacenes)
   - [Demo en Heroku+mLab](https://almacenw.herokuapp.com/)
-- **Bermudo Delgado, Juan de Dios** :octocat: [Taller](https://github.com/ezxioj87) 
+- **Bermudo Delgado, Juan de Dios** :octocat: [Taller](https://github.com/ezxioj87/Taller) 
   - [Demo en Heroku+mLab](https://tallerdaw.herokuapp.com/)
 - **Cruz Díaz, Jesús Diego**  :octocat: [Instituto](https://github.com/diegocd/instituto)
   - [Demo en Heroku+mLab](https://institutow.herokuapp.com/)
