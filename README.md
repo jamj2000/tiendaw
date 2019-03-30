@@ -62,8 +62,8 @@ Para el **FrontEnd** los archivos necesarios son:
 - public/index.html
 - public/style.css
 - public/app.js
-- public/manifestación   (para Aplicación Web Progresiva) 
-- public/serviceworke.rs   (para Aplicación Web Progresiva) 
+- public/manifest.json    (para Aplicación Web Progresiva) 
+- public/service-worker.js    (para Aplicación Web Progresiva) 
 - public/images/icons/*   (para Aplicación Web Progresiva) 
 
  
