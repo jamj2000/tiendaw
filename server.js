@@ -2,6 +2,7 @@
 const path     = require('path');
 const express  = require('express');
 const mongoose = require('mongoose');
+const cors     = require('cors')
 const routes   = require('./routes');
 const config   = require('./config');
 
@@ -15,6 +16,9 @@ mongoose.connect(config.db_uri, { useNewUrlParser: true })
 
 
 // --- MIDDLEWARE
+// Permitimos CORS para todos los origenes 
+app.use(cors());
+
 // Para redirigir trafico HTTP a HTTPS
 app.use((req, res, next) => {
   if (req.header('x-forwarded-proto') !== 'https'   &&  process.env.PORT  )
