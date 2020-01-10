@@ -46,11 +46,14 @@ Los archivos utilizados son los siguientes:
 └── README.md
 ```
 
-
-Para el **BackEnd** los archivos necesarios son:
+Para la **gestión del proyecto y dependencias**:
 
 - package.json
 - package-lock.json
+
+
+Para el **BackEnd** los archivos necesarios son:
+
 - server.js
 - config.js
 - models.js
